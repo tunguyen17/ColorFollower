@@ -16,8 +16,8 @@ class Sumo(object):
         self.PORT = I2C_PORT #default value
         BrickPiSetup() #setup the serial port for communication
         BrickPi.SensorType[self.PORT] = TYPE_SENSOR_RAW #Set the type of sensor at port
-        BrickPiSetupSensors() #Send the properties of sensors to BrickPi
 
+    #Warning there can ony be 1 update value
     #class method
     def val(self):
         if not BrickPiUpdateValues(): #ask BrickPi to update values for sensors/motors
