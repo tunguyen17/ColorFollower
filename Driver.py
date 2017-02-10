@@ -64,7 +64,7 @@ class Driver(object):
         BrickPi.MotorSpeed[self.RIGHT_PORT] = self.RIGHT_SPEED
 
         #update speed
-        BrickPiUpdateValues()
+        #BrickPiUpdateValues()
 
     def turn2(self, l, r):
 
@@ -76,7 +76,7 @@ class Driver(object):
         BrickPi.MotorSpeed[self.RIGHT_PORT] = self.RIGHT_SPEED
 
         #update speed
-        BrickPiUpdateValues()
+        #BrickPiUpdateValues()
 
     def turn3(self, p):
 
@@ -88,7 +88,7 @@ class Driver(object):
         BrickPi.MotorSpeed[self.RIGHT_PORT] = self.RIGHT_SPEED
 
         #update speed
-        BrickPiUpdateValues()
+        #BrickPiUpdateValues()
 
 
     def straight(self):
@@ -103,7 +103,7 @@ class Driver(object):
         BrickPi.MotorSpeed[self.RIGHT_PORT] = self.RIGHT_SPEED
 
         #update speed
-        BrickPiUpdateValues()
+        #BrickPiUpdateValues()
 
     def stop(self):
         self.active = False

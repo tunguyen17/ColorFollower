@@ -20,15 +20,13 @@ class Sumo(object):
     #Warning there can ony be 1 update value
     #class method
     def val(self):
-        if not BrickPiUpdateValues(): #ask BrickPi to update values for sensors/motors
-            sensor_value = BrickPi.Sensor[self.PORT]
-            print sensor_value
-            return 1 if sensor_value in LEFT \
-              else 2 if sensor_value in MIDDLE\
-              else 3 if sensor_value in RIGHT\
-              else 0 #Nothing ahead
-        else: #if the sensor does not response anything
-            return 0
+        sensor_value = BrickPi.Sensor[self.PORT]
+        #print sensor_value
+        return 1 if sensor_value in LEFT \
+          else 2 if sensor_value in MIDDLE\
+          else 3 if sensor_value in RIGHT\
+          else 0 #Nothing ahead
+
 
 #main method
 def main():
