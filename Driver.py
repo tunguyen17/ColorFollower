@@ -2,8 +2,6 @@ from BrickPi import *
 from threading import Thread
 import time
 
-
-
 class Driver(object):
     def __init__(self, MOTOR_PORT_L = PORT_C, MOTOR_PORT_R = PORT_B):
 

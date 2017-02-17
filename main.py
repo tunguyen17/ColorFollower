@@ -9,17 +9,16 @@ from BrickPi import \
 
 from random import uniform
 
-import Driver
-import Sumo
-import Pixy
+import Driver, Sumo2, Pixy, QLearning
 
 import time
 
 def main():
+
     pixy = Pixy.Pixy()
     #Focusing Pixy on just the first object
     pixy.setup_obj1()
-    sumo = Sumo.Sumo(PORT_3)
+    sumo = Sumo2.Sumo2()
 
     state = {0 : 'track', 1 : 'avoid'}
     prev_state = 'track'
@@ -28,9 +27,6 @@ def main():
     if(BrickPiSetupSensors()):
       print "BrickPiSetupSensors failed"
       sys.exit( 0 )
-
-
-
 
     prez = Driver.Driver(PORT_C, PORT_B)
     print "Driver created"
