@@ -43,8 +43,8 @@ class Driver(object):
 
     def speed(self, speed):
         self.BASE_SPEED = speed
-        self.LEFT_SPEED = self.BASE_SPEED
-        self.RIGHT_SPEED = self.BASE_SPEED
+        # self.LEFT_SPEED = self.BASE_SPEED
+        # self.RIGHT_SPEED = self.BASE_SPEED
         BrickPi.MotorSpeed[self.LEFT_PORT] = self.LEFT_SPEED
         BrickPi.MotorSpeed[self.RIGHT_PORT] = self.RIGHT_SPEED
 
@@ -95,6 +95,20 @@ class Driver(object):
         '''
         self.LEFT_SPEED = self.BASE_SPEED
         self.RIGHT_SPEED = self.BASE_SPEED
+
+        #set new speed
+        BrickPi.MotorSpeed[self.LEFT_PORT] = self.LEFT_SPEED
+        BrickPi.MotorSpeed[self.RIGHT_PORT] = self.RIGHT_SPEED
+
+        #update speed
+        #BrickPiUpdateValues()
+
+    def back(self):
+        '''
+        Turn the wheel straight
+        '''
+        self.LEFT_SPEED = -self.BASE_SPEED
+        self.RIGHT_SPEED = -self.BASE_SPEED
 
         #set new speed
         BrickPi.MotorSpeed[self.LEFT_PORT] = self.LEFT_SPEED

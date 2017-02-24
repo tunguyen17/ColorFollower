@@ -2,7 +2,7 @@ from numpy import matrix, zeros, array, argmax
 
 class QLearning(object):
 
-    def __init__(self, n_states, n_actions, alpha_input = 0.1, r=1, gamma_input = 0.5):
+    def __init__(self, n_states, n_actions, alpha_input = 0.3, r=1, gamma_input = 0.5):
         '''
             Is an array consist of all possible states
             A is an array consist of all posiible actions
@@ -22,11 +22,12 @@ class QLearning(object):
         self.alpha = alpha_input
         self.gamma = gamma_input
 
-    def train(s0, a0, s1, a1, r):
-        self.qMat[s0, a0] += self.alpha*(r + self.gamma*max(qMat[s1]) - self.qMat[s0, a0])
+    def train(self, s0, a0, s1, a1, r):
+        self.qMat[s0, a0] += self.alpha*(r + self.gamma*max(self.qMat[s1]) - self.qMat[s0, a0])
+        matrix_to_csv(self.qMat)
 
-    def predict(s):
-        return argmax(qMat[s])
+    def predict(self, s):
+        return argmax(self.qMat[s])
 
 
 def csv_to_matrix(f):
