@@ -49,19 +49,20 @@ class Pixy(object):
         else:
             return None
     def center_pos(self):
-        if(BrickPi.Sensor[self.PORT] & (0x01 << self.I2C_DEVICE_INDEX)):
-            n_object = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][0]
-            object_color = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][1]
-            x_ul = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][2]
-            y_ul = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][3]
-            x_lr = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][4]
-            y_lr = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][5]
-            X = (x_ul + x_lr)/2
-            Y = (y_ul + y_lr)/2
-            if n_object > 0:
-                return [X, Y]
-            else:
-                return None
+        if(not BrickPiUpdateValues()):
+            if(BrickPi.Sensor[self.PORT] & (0x01 << self.I2C_DEVICE_INDEX)):
+                n_object = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][0]
+                object_color = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][1]
+                x_ul = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][2]
+                y_ul = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][3]
+                x_lr = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][4]
+                y_lr = BrickPi.SensorI2CIn[self.PORT][self.I2C_DEVICE_INDEX][5]
+                X = (x_ul + x_lr)/2
+                Y = (y_ul + y_lr)/2
+                if n_object > 0:
+                    return [X, Y]
+        else:
+            return None
 
 
 def main():

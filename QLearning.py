@@ -10,9 +10,9 @@ class QLearning(object):
         self.sn    = n_states
         self.an    = n_actions
 
-        #Resetting the Q-Matrix
-        self.qMat = zeros((n_states, n_actions))
-        matrix_to_csv(self.qMat)
+        # #Resetting the Q-Matrix
+        # self.qMat = zeros((n_states, n_actions))
+        # matrix_to_csv(self.qMat)
 
         #Reading the Q-matrix from file
         qMat_file = open('qMat.csv', 'r')
